@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
     
-    def create()
+    def create
         if  user = User.find_by(username: params["user"]["username"]) 
-           if user.authenticate(params["user"][:password])
-            render json: user, only: [:username, :email, :token]
+           if user.authenticate(params["user"]["password"])
+            render json: user, only: [:id, :username, :email, :token]
            else
-            render json: {errors: 'Error signing in, please try again.'}
+            render json: {error: 'Error signing in, please try again.'}
            end 
         else #create new user if existing user not found
             user = User.new(user_params)
             if user.save
-                render json: user, only: [:username, :email, :token]
+                render json: user, only: [:id, :username, :email, :token]
             else 
-                render json: {errors: 'Error signing up, please try again.'}
+                render json: {error: 'Error signing up, please try again.'}
             end 
         end 
     end 
