@@ -1,5 +1,10 @@
 class TodosController < ApplicationController
 
+    def index
+        todos = Todo.all.where(:user_id => params["user_id"])
+        render json: todos
+    end 
+
     def create
         todo = Todo.new(todo_params)
         if todo.save 
@@ -8,6 +13,12 @@ class TodosController < ApplicationController
             render json: {error: "Error creating todo."}
         end
     end 
+
+    def destroy
+        todo = Todo.find_by(id: params["id"])
+        todo.destroy
+    end
+
 
     private
 
