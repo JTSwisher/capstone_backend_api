@@ -1,24 +1,64 @@
-# README
+# DailyDash
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DailyDash is a Single Page Application utilizing a dashboard  to provide users with information from multiple outside sources. This app was designed to help cenbtralize the information I would seek out across multiple different websites as well as allowing me to track my todos. 
 
-Things you may want to cover:
+DailyDash makes use of two external APIs to incorporate the following:
 
-* Ruby version
+* Weather Data - [AccuWeather] (https://developer.accuweather.com/)
+* News Data - [NewsAPI] (https://newsapi.org/)
 
-* System dependencies
+[Frontend Repo] (https://github.com/JTSwisher/capstone_react_frontend) | [Backend Repo] (https://github.com/JTSwisher/capstone_backend_api)
 
-* Configuration
+## Demo
+ [DailyDash walkthrough](https://youtu.be/eKzUNgVOXgU)
 
-* Database creation
+## Built With
 
-* Database initialization
+* [Rails](https://rubyonrails.org/)
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 
-* How to run the test suite
+## Getting Started
 
-* Services (job queues, cache servers, search engines, etc.)
+These instructions will get a local copy of DailyDash up and running on your machine.
 
-* Deployment instructions
+### Prerequisites
 
-* ...
+* [Ruby] (https://www.ruby-lang.org/en/)
+* [Rails] (https://rubyonrails.org/)
+* [Node.js] (https://nodejs.org/en/)
+* [NPM] (https://www.npmjs.com/)
+
+### Installation
+Fork and clone the [Frontend Repo] (https://github.com/JTSwisher/capstone_react_frontend) and the Backend Repo] (https://github.com/JTSwisher/capstone_backend_api) to your local machine.
+
+#### Backend
+Change directories into the backend local directory. Run bundle install to install dependencies. Ensure PostgreSQL is running on your machin, create and migrate the database.
+```
+$cd backend-api
+$bundle install
+$rails db:create
+$rails db:migrate
+```
+Run the following command to start your local server. The backend api will be run on port:3001, if 3001 is not used you will have to adjust the URLs used in the fetch calls on the frontend.
+```
+$rails s -p 3001
+```
+#### Frontend
+Change directories into the frontend local directory and run the following command to launch the app.
+```
+$cd react-frontend
+$ npm start
+```
+## Contributing
+
+Bug reports and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## Authors
+
+[Jeff Swisher](https://github.com/JTSwisher)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
